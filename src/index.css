@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background-color: #f1f1f1;
+  color: #1a1a1a;
+  font-family: 'Rubik', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.cbdc-text-blue {
+  color: #1569bb;
+}
+.cbdc-bg-blue {
+  background-color: #1569bb;
+}
+.cbdc-border-blue {
+  border-left: 4px solid #1569bb;
+}
+.cbdc-text-green {
+  color: #00c6ae;
+}
+.cbdc-bg-green {
+  background-color: #00c6ae;
+}
+.cbdc-border-green {
+  border: 3px solid #00c6ae;
+}
+.common-lotte-file {
+  width: 350px; 
+  height: 350px;
+}
