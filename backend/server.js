@@ -12,6 +12,8 @@ app.use(express.json());
 
 const uri = process.env.MONGODB_URL;
 
+mongoose.set('strictQuery', false);
+
 mongoose.connect(uri,
     err => {
         if(err) throw err;

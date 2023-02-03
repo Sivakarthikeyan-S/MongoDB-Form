@@ -3,8 +3,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { useParams } from "react-router-dom";
 
-export default class EditExercise extends Component {
+function withParams(Component) {
+  return props => <Component {...props} params={useParams()} />;
+}
+
+class EditExercise extends Component {
 
   constructor(props) {
     super(props);
@@ -27,7 +32,9 @@ export default class EditExercise extends Component {
 
   componentDidMount() {
 
-    axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
+    let { id } = this.props.params;
+
+    axios.get('http://localhost:5000/exercises/'+id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -89,7 +96,9 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/update/'+this.props.match.params.id, exercise)
+    let { id } = this.props.params;
+
+    axios.post('http://localhost:5000/exercises/update/'+id, exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';
@@ -148,7 +157,7 @@ export default class EditExercise extends Component {
           </div>
 
           <div className="form-group m-4">
-            <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
+            <input type="submit" value="Save" className="btn btn-primary" />
           </div>
         </form>
       </div>
@@ -156,3 +165,5 @@ export default class EditExercise extends Component {
     )
   }
 }
+
+export default withParams(EditExercise);
