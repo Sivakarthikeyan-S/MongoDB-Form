@@ -50,7 +50,7 @@ export default class ExerciseList extends Component  {
 
   render () {
     return ( 
-      <div>
+      <div class="container">
         <Header />
         <div className="m-4">
           <h3>Logged Exercises</h3>
